@@ -1,0 +1,27 @@
+Problems with an array or LinkedList
+- asked to find or calculate something among all the subarrays (or sublists) of a given size.
+
+Example: Given an array, find the average of all subarrays of ‘K’ contiguous elements in it.
+Array: [1, 3, 2, 6, -1, 4, 1, 8, 2], K=5
+
+Brute force would be calculate the sum of every 5-element subarray and divide the sum by 5 to find the average.
+
+def find_averages_of_subarrays(K, arr):
+    res = []
+    for i in range(len(arr)):
+        _sum = 0.0
+        for j in range(i, i+K):
+            _sum += arr[j]
+        res.append(_sum/K) # calculate average
+    return res
+
+
+def main():
+    result = find_averages_of_subarrays(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])
+    print("Averages of subarrays of size K: " + str(result))
+
+
+Time Complexity: O(N * K) because we calculate the sum of its next 'K' elements every time.
+
+
+The inefficiency is that for any two consecutive subarrays of size '5', the overalpping part (which will contain four elements)
