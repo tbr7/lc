@@ -1,4 +1,6 @@
 # Given a string, find the length of the longest substring in it with no more than K distinct characters.
+# Time complexity is O(N) because outer loop runs O(N) and the inner while will at max be O(N) as we only process each char once
+# O(N + N) is equivalent to O(N)
 
 def longest_substring_with_k_distinct(str1, k):
     freq = {}
