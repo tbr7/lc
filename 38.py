@@ -1,5 +1,5 @@
 class Solution:
-    def find_word_concatenation(self, s, words):
+    def findSubstring(self, s: str, words: List[str]) -> List[int]:
         wordLen = len(words[0])
         wordCount = len(words)
         if wordCount == 0 or wordLen == 0:
@@ -11,6 +11,7 @@ class Solution:
             if w not in wordFreq:
                 wordFreq[w] = 0
             wordFreq[w] += 1
+            
 
         indices = []
         # Starting from every index in the string, try to match all the words.
@@ -41,10 +42,9 @@ class Solution:
                 if j + 1 == wordCount:
                     indices.append(i)
         return indices
+            
 def main():
     s = Solution()
-    print(s.find_word_concatenation("catfoxcat", ["cat", "fox"]))
-    # print(s.find_word_concatenation("catcatfoxfox", ["cat","fox"]))
-    # print(s.find_word_concatenation("wordgoodgoodgoodbestword", ["word","good", "good", "good", "best"]))
-    
-main()
+    print(s.findSubstring("barfoothefoobarman", ["foo","bar"])) # [0,9]
+    print(s.findSubstring("wordgoodgoodgoodbestword", ["word","good", "best", "word"])) # []
+    print(s.findSubstring("barfoofoobarthefoobarman", ["bar","foo", "the"])) # [6,9,12]
