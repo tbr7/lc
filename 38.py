@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
         wordLen = len(words[0])
@@ -48,3 +49,4 @@ def main():
     print(s.findSubstring("barfoothefoobarman", ["foo","bar"])) # [0,9]
     print(s.findSubstring("wordgoodgoodgoodbestword", ["word","good", "best", "word"])) # []
     print(s.findSubstring("barfoofoobarthefoobarman", ["bar","foo", "the"])) # [6,9,12]
+main()
